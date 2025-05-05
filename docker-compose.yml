@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  spark:
+    build: .
+    container_name: spark_ecobici
+    volumes:
+      - ./data:/app/data # CSVs brutos
+      - ./results:/app/results # Métricas y gráficos
+      - ./src:/app/src # Código fuente (hot‑reload)
+      - ./notebooks:/app/notebooks # Notebooks opcionales
+    ports:
+      - "4041:4040" # Spark UI
+      - "8888:8888" # Notebook
+    environment:
+      - SPARK_WORKER_MEMORY=16g
+      - JAVA_TOOL_OPTIONS=-Djava.security.manager=allow
+    command: /app/src/analysis.py

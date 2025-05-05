@@ -1,0 +1,15 @@
+# Archivos Spark
+*_SUCCESS*
+*.crc
+*.csv
+
+# Python & notebooks
+**__pycache__/
+*.ipynb
+
+# Salidas graficas
+*.png
+
+# Entornos virtuales
+*.lock
+*.toml
